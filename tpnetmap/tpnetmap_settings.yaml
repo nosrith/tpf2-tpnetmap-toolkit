@@ -1,0 +1,29 @@
+mapPath: ../data/map.yaml
+outPath: ../data/map.svg
+outSize: 4096
+backgroundPath: ../data/hillshade.png
+townLabelAttributes:
+  fill: "#000000" 
+  fillOpacity: 0.5
+  fontSize: 24
+  fontStyle: italic
+stationsHavingTrackOnly: true
+suppressDuplicatedCargoStation: true
+stationMarkerAttributes: 
+  fill: "#ffffff"
+  stroke: "#202020"
+stationLabelAttributes: 
+  fill: "#000000"
+  fontSize: 20
+trackSpeedLimitThreshold: 2.0
+trackPathAttributes: 
+  stroke: "#202020"
+streetWidthThreshold: 3.0
+streetPathBaseWidth: 1.5
+streetPathAttributes: 
+  stroke: "#f0f0f0"
+wideStreetWidthThreshold: 7.0
+wideStreetPathAttributes: 
+  stroke: "#f0f0f0"
+wideStreetBorderAttributes: 
+  stroke: "#202020"

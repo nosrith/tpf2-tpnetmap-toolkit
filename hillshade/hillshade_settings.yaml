@@ -1,0 +1,23 @@
+imagePath: ../data/heightmap.png
+minHeight: -100
+waterHeight: 0
+maxHeight: 447
+heightPixelRatio: 10
+lightPitch: 30
+lightYaw: 315
+noLightUnderWater: true
+heightColorStops:
+  - height: -100
+    color: [104, 175, 210]
+  - height: 0
+    color: [117, 199, 240]
+  - height: 0
+    color: [224, 248, 199]
+  - height: 50
+    color: [241, 247, 199]
+  - height: 50
+    color: [241, 247, 199]
+  - height: 447
+    color: [216, 150, 88]
+outPath: ../data/hillshade.png
+outScale: 1
