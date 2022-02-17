@@ -20,7 +20,7 @@ local function writeTowns(f)
         local name = api.engine.getComponent(town, api.type.ComponentType.NAME).name
         local bbox = api.engine.getComponent(town, api.type.ComponentType.BOUNDING_VOLUME).bbox
         f:write(string.format(
-            "%s{id: %d,name: %s,x: %f,y: %f,z: %f}",
+            "%s{id: %d,name: \"%s\",x: %f,y: %f,z: %f}",
             comma, town, name, (bbox.min.x + bbox.max.x) / 2, (bbox.min.y + bbox.max.y) / 2, (bbox.min.z + bbox.max.z) / 2 
         ))
         comma = ","
@@ -78,7 +78,7 @@ local function writeStations(f)
 
         if c > 0 then
             f:write(string.format(
-                "%s{id: %d,name: %s,cargo: %s,hasTrack: %s,x: %f,y: %f,z: %f}", 
+                "%s{id: %d,name: \"%s\",cargo: %s,hasTrack: %s,x: %f,y: %f,z: %f}", 
                 comma, groupEntity, nameComp.name, cargo, hasTrack, x / c, y / c, z / c
             ))
             comma = ","
