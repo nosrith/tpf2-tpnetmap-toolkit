@@ -68,7 +68,7 @@ local function writeStations(f)
                 end
             end
             if not validPosition then
-                boundComp = api.engine.getComponent(stationEntityInGroup, api.type.ComponentType.BOUNDING_VOLUME)
+                local boundComp = api.engine.getComponent(stationEntityInGroup, api.type.ComponentType.BOUNDING_VOLUME)
                 x = x + (boundComp.bbox.min.x + boundComp.bbox.max.x) / 2
                 y = y + (boundComp.bbox.min.y + boundComp.bbox.max.y) / 2
                 z = z + (boundComp.bbox.min.z + boundComp.bbox.max.z) / 2
