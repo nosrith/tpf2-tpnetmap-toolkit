@@ -212,10 +212,13 @@ func writeTracks(mapData MapData, settings Settings, tf Transform, writer *bufio
 }
 
 func writeTownLabel(mapData MapData, settings Settings, tf Transform, writer *bufio.Writer) {
-	attrStr := getAttributeString(settings.TownLabelAttributes)
+	attrStr := getAttributeString(
+		map[string]string{"fill": "#000000", "textAnchor": "middle", "dominantBaseline": "central"},
+		settings.TownLabelAttributes,
+	)
 	for _, t := range mapData.Towns {
 		writer.WriteString(fmt.Sprintf(
-			`<text x="%f" y="%f" fill="#000000" text-anchor="middle" dominant-baseline="central"%s>%s</text>`,
+			`<text x="%f" y="%f"%s>%s</text>`,
 			tf.x(t.X),
 			tf.y(t.Y),
 			attrStr,
@@ -239,11 +242,14 @@ func isTargetStation(s Station, mapData MapData, settings Settings) bool {
 }
 
 func writeStationMarker(mapData MapData, settings Settings, tf Transform, writer *bufio.Writer) {
-	attrStr := getAttributeString(settings.StationMarkerAttributes)
+	attrStr := getAttributeString(
+		map[string]string{"r": "6", "strokeWidth": "3"},
+		settings.StationMarkerAttributes,
+	)
 	for _, s := range mapData.Stations {
 		if isTargetStation(s, mapData, settings) {
 			writer.WriteString(fmt.Sprintf(
-				`<circle cx="%f" cy="%f" r="6" stroke-width="3"%s/>`,
+				`<circle cx="%f" cy="%f"%s/>`,
 				tf.x(s.X),
 				tf.y(s.Y),
 				attrStr,
@@ -253,11 +259,14 @@ func writeStationMarker(mapData MapData, settings Settings, tf Transform, writer
 }
 
 func writeStationLabel(mapData MapData, settings Settings, tf Transform, writer *bufio.Writer) {
-	attrStr := getAttributeString(settings.StationLabelAttributes)
+	attrStr := getAttributeString(
+		map[string]string{"fill": "#000000", "fontSize": "20"},
+		settings.StationLabelAttributes,
+	)
 	for _, s := range mapData.Stations {
 		if isTargetStation(s, mapData, settings) {
 			writer.WriteString(fmt.Sprintf(
-				`<text x="%f" y="%f" fill="#000000" font-size="20"%s>%s</text>`,
+				`<text x="%f" y="%f"%s>%s</text>`,
 				tf.x(s.X)+4,
 				tf.y(s.Y)-4,
 				attrStr,
